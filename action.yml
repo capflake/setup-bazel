@@ -1,0 +1,12 @@
+name: 'Setup Bazelisk and Bazel'
+description: 'Set up the latest bazel version and add the binary to the PATH'
+author: 'capflake'
+runs:
+  using: 'composite'
+  steps:
+    - run: cd ${{ github.action_path }}
+      shell: bash
+    - run: curl -OL https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-amd64
+      shell: bash
+    - run: export PATH="$PATH:${{ github.action_path }}"
+      shell: bash
